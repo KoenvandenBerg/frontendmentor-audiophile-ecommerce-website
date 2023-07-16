@@ -7,6 +7,10 @@
   --gray: #f1f1f1;
   --light-gray: #fafafa;
   --red: #cd2c2c;
+  --small: 640px;
+  --medium: 768px;
+  --large: 1024px;
+  --extralarge: 1280px;
 }
 
 *,
