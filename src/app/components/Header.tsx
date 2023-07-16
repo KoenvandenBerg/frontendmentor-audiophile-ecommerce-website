@@ -45,7 +45,7 @@ export default function Header() {
                 <Link
                   href={`/${page}`}
                   key={page}
-                  className={`${headerStyles.pageLink} subtitle-text`}
+                  className={`subtitle-text ${headerStyles.pageLink}`}
                 >
                   {page}
                 </Link>
