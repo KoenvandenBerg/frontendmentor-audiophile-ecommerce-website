@@ -1,21 +1,27 @@
 .headerContainer {
   transition: all 0.25s ease-in-out;
-  height: 40rem;
+  height: 35rem;
   background: url('/home/tablet/image-header.jpg') no-repeat, #191919 0px 0px;
   background-size: cover;
   background-position: center top -0.75rem;
   color: var(--white);
 }
 
+@media (min-width: 590px) {
+  .headerContainer {
+    background-size: contain;
+  }
+}
+
 @media (min-width: 700px) {
   .headerContainer {
-    height: 50rem;
+    height: 45rem;
     background-size: cover;
     background-position: center top -1.5rem;
   }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 770px) {
   .headerContainer {
     background-size: contain;
   }
@@ -30,7 +36,7 @@
   }
 }
 
-@media (min-width: 1570px) {
+@media (min-width: 1430px) {
   .headerContainer {
     background-size: contain;
   }
