@@ -1,0 +1,57 @@
+.button {
+  transition: all 0.15s ease-in-out;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.buttonRegular {
+  composes: button;
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.buttonRegular:hover {
+  background-color: var(--light-orange);
+}
+
+.buttonOutline {
+  composes: button;
+  background-color: var(--white);
+  border: 1px solid black;
+}
+
+.buttonOutline:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.buttonTransparent {
+  composes: button;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.buttonTransparent:hover {
+  color: var(--orange);
+}
+
+.buttonTransparent svg {
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  top: 0.125rem;
+  left: 0.5rem;
+}
+
+.buttonTransparent:hover svg {
+  position: relative;
+  top: 0.125rem;
+  left: 0.65rem;
+}
