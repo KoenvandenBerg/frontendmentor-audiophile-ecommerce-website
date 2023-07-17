@@ -5,7 +5,6 @@
   background-size: cover;
   background-position: center top -0.75rem;
   color: var(--white);
-  border: 1px solid black;
 }
 
 @media (min-width: 700px) {
@@ -64,7 +63,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1.5rem;
 }
 
 .logo {
@@ -72,15 +70,15 @@
   width: 9rem;
   position: absolute;
   left: 50%;
-  top: 1.95rem;
+  top: 2rem;
   margin-left: -4.5rem;
 }
 
 @media (min-width: 700px) {
   .logo {
     position: absolute;
-    left: 4.5rem;
-    margin: 0 -0.5rem 0 0;
+    left: 3rem;
+    margin: 0 0;
   }
 }
 
@@ -88,7 +86,6 @@
   .logo {
     position: absolute;
     left: 0;
-    margin: 0 0;
   }
 }
 

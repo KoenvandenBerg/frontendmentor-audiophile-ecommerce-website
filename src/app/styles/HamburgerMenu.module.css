@@ -10,7 +10,7 @@
   }
 }
 
-.hamburgerMenuButton:hover svg rect {
+.hamburgerMenuButton:hover rect {
   transition: all 0.15s ease-in-out;
   fill: var(--orange);
 }
@@ -24,7 +24,6 @@
   color: black;
   position: absolute;
   top: 0;
-  margin: 0 auto;
 }
 
 .hamburgerMenuDropdownBackground {
