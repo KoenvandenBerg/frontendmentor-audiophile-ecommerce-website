@@ -1,26 +1,15 @@
 import React from 'react';
 import headerStyles from '@/app/styles/Header.module.css';
 import Link from 'next/link';
+import HamburgerMenu from './HamburgerMenu';
 
 const pages = ['Home', 'Headphones', 'Speakers', 'Earphones'];
 
 export default function Header() {
   return (
-    <div className={headerStyles.headerBox}>
-      <div className={headerStyles.headerContentBox}>
-        <button className={headerStyles.hamburgerMenuButton}>
-          <svg
-            width="16"
-            height="15"
-            viewBox="0 0 16 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="16" height="3" fill="white" />
-            <rect y="6" width="16" height="3" fill="white" />
-            <rect y="12" width="16" height="3" fill="white" />
-          </svg>
-        </button>
+    <div className={headerStyles.headerContainer}>
+      <nav className={headerStyles.headerContentContainer}>
+        <HamburgerMenu />
 
         <svg
           width="143"
@@ -70,7 +59,19 @@ export default function Header() {
             />
           </svg>
         </button>
-      </div>
+      </nav>
+      {/* <picture className={headerStyles.picture}>
+        <source
+          srcSet="/home/tablet/image-header.jpg"
+          media="(min-width: 900px)"
+        />
+        <source
+          srcSet="/home/desktop/image-hero.jpg"
+          media="(min-width: 1100px)"
+        />
+        <img src="/home/mobile/image-header.jpg" alt="Headphones" />
+      </picture> */}
+      <div className={headerStyles.heroText}></div>
     </div>
   );
 }
