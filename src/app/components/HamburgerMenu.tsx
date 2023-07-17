@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import hamburgerMenuStyles from '@/app/styles/HamburgerMenu.module.css';
 import { createPortal } from 'react-dom';
-import CategoryButton from './CategoryButton';
 
 export default function HamburgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
