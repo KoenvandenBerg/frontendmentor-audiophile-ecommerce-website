@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center top -0.75rem;
   color: var(--white);
+  margin-bottom: 7.5rem;
 }
 
 @media (min-width: 590px) {
