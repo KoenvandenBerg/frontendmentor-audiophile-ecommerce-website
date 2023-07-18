@@ -1,0 +1,27 @@
+.container {
+  margin-bottom: 7.5rem;
+}
+
+@media (min-width: 700px) {
+  .container {
+    margin-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    margin-bottom: 10.5rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 700px) {
+  .content {
+    flex-direction: row;
+  }
+}
