@@ -61,6 +61,12 @@
   }
 }
 
+.footerContentTopBar > a:hover > svg > path {
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  fill: var(--orange);
+}
+
 .footerContentTopBar ul {
   display: flex;
   flex-direction: column;
