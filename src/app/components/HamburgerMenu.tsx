@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import hamburgerMenuStyles from '@/app/styles/HamburgerMenu.module.css';
 import { createPortal } from 'react-dom';
+import CategoryButtons from './CategoryButtons';
+import { categoryButtonSizes } from './CategoryButton';
 
 export default function HamburgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,11 +32,14 @@ export default function HamburgerMenu() {
 
       {menuOpen &&
         createPortal(
-          <div className={hamburgerMenuStyles.hamburgerMenuDropdownBackground}>
+          <>
+            <div
+              className={hamburgerMenuStyles.hamburgerMenuDropdownBackground}
+            ></div>
             <div className={hamburgerMenuStyles.hamburgerMenuDropdown}>
-              Menu Items
+              <CategoryButtons size={categoryButtonSizes.small} />
             </div>
-          </div>,
+          </>,
           document.body
         )}
     </>

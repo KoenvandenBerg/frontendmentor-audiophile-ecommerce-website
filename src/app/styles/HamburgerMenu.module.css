@@ -16,21 +16,20 @@
 }
 
 .hamburgerMenuDropdown {
-  height: 21.25rem;
-  width: 100vw;
+  width: 100%;
+  padding: 1rem 1.5rem 3rem 1.5rem;
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   background-color: var(--white);
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  color: black;
   position: absolute;
-  top: 0;
+  top: 5.625rem;
 }
 
 .hamburgerMenuDropdownBackground {
   width: 100vw;
-  height: calc(100% - 5.625rem);
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  top: 5.625rem;
+  position: fixed;
+  top: 0;
   left: 0;
 }
