@@ -1,0 +1,90 @@
+.container {
+  transition: all 0.25s ease-in-out;
+  height: 5.625rem;
+  width: 100%;
+  background: none;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.hamburgerMenu {
+  position: absolute;
+  left: 0;
+}
+
+.logo {
+  transition: all 0.25s ease-in-out;
+  width: 9rem;
+  position: absolute;
+  left: 50%;
+  top: 1.6rem;
+  margin-left: -4.5rem;
+}
+
+@media (min-width: 700px) {
+  .logo {
+    position: absolute;
+    left: 3rem;
+    margin: 0 0;
+  }
+}
+
+@media (min-width: 1100px) {
+  .logo {
+    position: absolute;
+    left: 0;
+  }
+}
+
+.logo:hover path {
+  transition: all 0.15s ease-in-out;
+  fill: var(--orange);
+}
+
+.pageLinksBox {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .pageLinksBox {
+    display: block;
+  }
+}
+
+.pageLinksBox ul {
+  display: flex;
+  gap: 2.12rem;
+}
+
+.pageLink {
+  transition: all 0.15s ease-in-out;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.pageLink:hover {
+  color: var(--orange);
+}
+
+.cartMenuButton {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1100px) {
+  .cartMenuButton {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.cartMenuButton:hover path {
+  transition: all 0.15s ease-in-out;
+  fill: var(--orange);
+}
