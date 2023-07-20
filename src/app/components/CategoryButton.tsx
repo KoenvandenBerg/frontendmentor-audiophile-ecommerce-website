@@ -2,6 +2,7 @@
 import React from 'react';
 import categoryButtonStyles from '@/app/styles/CategoryButton.module.css';
 import Button, { ButtonTypes } from './Button';
+import Link from 'next/link';
 
 export enum categoryButtonSizes {
   small,
@@ -84,7 +85,13 @@ export default function CategoryButton(props: CategoryButtonProps) {
           alt={getButtonText()}
         />
         <h3>{getButtonText()}</h3>
-        <Button text="Shop" type={ButtonTypes.transparent} onClick={() => {}} />
+        <Link href={`/${getButtonText().toLowerCase()}`} tabIndex={-1}>
+          <Button
+            text="Shop"
+            type={ButtonTypes.transparent}
+            onClick={() => {}}
+          />
+        </Link>
       </div>
     </div>
   );

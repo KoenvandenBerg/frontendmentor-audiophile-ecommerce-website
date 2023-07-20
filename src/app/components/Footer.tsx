@@ -32,7 +32,7 @@ export default function Footer() {
               {pages.map((page) => {
                 return (
                   <Link
-                    href={`/${page}`}
+                    href={page === 'Home' ? '/' : `/${page.toLowerCase()}`}
                     key={page}
                     className={`subtitle-text ${footerStyles.pageLink}`}
                   >
