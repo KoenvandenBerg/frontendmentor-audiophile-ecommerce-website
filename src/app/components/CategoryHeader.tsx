@@ -1,7 +1,6 @@
 import React from 'react';
 import categoryHeaderStyles from '@/app/styles/CategoryHeader.module.css';
 import Navbar from './Navbar';
-import { usePathname } from 'next/navigation';
 
 type CategoryHeaderProps = {
   categoryName: string;
