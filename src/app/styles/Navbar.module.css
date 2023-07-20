@@ -10,6 +10,7 @@
   align-items: center;
   z-index: 1;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hamburgerMenu {
@@ -22,7 +23,7 @@
   width: 9rem;
   position: absolute;
   left: 50%;
-  top: 1.9rem;
+  top: 1.95rem;
   margin-left: -4.5rem;
 }
 
@@ -48,6 +49,7 @@
 
 .pageLinksBox {
   display: none;
+  padding-bottom: 0.1rem;
 }
 
 @media (min-width: 1100px) {
