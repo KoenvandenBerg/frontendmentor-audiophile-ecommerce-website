@@ -4,11 +4,6 @@ import categoryButtonStyles from '@/app/styles/CategoryButton.module.css';
 import Button, { ButtonTypes } from './Button';
 import Link from 'next/link';
 
-export enum categoryButtonSizes {
-  small,
-  large,
-}
-
 export enum categoryButtonTypes {
   headphones,
   speakers,
@@ -17,7 +12,6 @@ export enum categoryButtonTypes {
 
 type CategoryButtonProps = {
   type: categoryButtonTypes;
-  size: categoryButtonSizes;
 };
 
 export default function CategoryButton(props: CategoryButtonProps) {
@@ -35,25 +29,13 @@ export default function CategoryButton(props: CategoryButtonProps) {
   };
 
   const getImageClassName = () => {
-    switch (props.size) {
-      case categoryButtonSizes.small:
-        switch (props.type) {
-          case categoryButtonTypes.headphones:
-            return categoryButtonStyles.headphonesImageSmall;
-          case categoryButtonTypes.speakers:
-            return categoryButtonStyles.speakersImageSmall;
-          case categoryButtonTypes.earphones:
-            return categoryButtonStyles.earphonesImageSmall;
-        }
-      case categoryButtonSizes.large:
-        switch (props.type) {
-          case categoryButtonTypes.headphones:
-            return categoryButtonStyles.headphonesImageLarge;
-          case categoryButtonTypes.speakers:
-            return categoryButtonStyles.speakersImageLarge;
-          case categoryButtonTypes.earphones:
-            return categoryButtonStyles.earphonesImageLarge;
-        }
+    switch (props.type) {
+      case categoryButtonTypes.headphones:
+        return categoryButtonStyles.headphonesImage;
+      case categoryButtonTypes.speakers:
+        return categoryButtonStyles.speakersImage;
+      case categoryButtonTypes.earphones:
+        return categoryButtonStyles.earphonesImage;
     }
   };
 
@@ -71,13 +53,7 @@ export default function CategoryButton(props: CategoryButtonProps) {
   };
 
   return (
-    <div
-      className={
-        props.size === categoryButtonSizes.small
-          ? categoryButtonStyles.containerSmall
-          : categoryButtonStyles.containerLarge
-      }
-    >
+    <div className={categoryButtonStyles.container}>
       <div className={categoryButtonStyles.content}>
         <img
           className={getImageClassName()}

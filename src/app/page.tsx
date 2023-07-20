@@ -1,4 +1,3 @@
-import { categoryButtonSizes } from './components/CategoryButton';
 import CategoryButtons from './components/CategoryButtons';
 import DescriptionSection from './components/DescriptionSection';
 import HeroSection from './components/HeroSection';
@@ -9,7 +8,7 @@ export default function Home() {
     <>
       <HeroSection />
       <section className={pageStyles.categoryButtonsContainer}>
-        <CategoryButtons size={categoryButtonSizes.small} />
+        <CategoryButtons />
       </section>
 
       <DescriptionSection />
