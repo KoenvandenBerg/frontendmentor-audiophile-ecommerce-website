@@ -1,5 +1,6 @@
 .container {
   transition: all 0.25s ease-in-out;
+  position: relative;
   height: 5.625rem;
   width: 100%;
   background: none;
