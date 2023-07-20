@@ -1,6 +1,6 @@
 .container {
-  transition: all 0.25s ease-in-out;
   position: relative;
+  transition: all 0.25s ease-in-out;
   height: 5.625rem;
   width: 100%;
   background: none;
@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  flex-shrink: 0;
 }
 
 .hamburgerMenu {
@@ -21,7 +22,7 @@
   width: 9rem;
   position: absolute;
   left: 50%;
-  top: 1.6rem;
+  top: 1.9rem;
   margin-left: -4.5rem;
 }
 
