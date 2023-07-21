@@ -56,7 +56,7 @@
 }
 
 .mainItemTextBox {
-  width: 24rem;
+  max-width: 24rem;
   height: 19rem;
   display: flex;
   flex-direction: column;
