@@ -28,7 +28,7 @@ export default function ProductGrid() {
       </div>
       <div className={productGridStyles.secondaryItem}>
         <div className={productGridStyles.secondaryItemText}>
-          <h2>YX1 Earphones</h2>
+          <h2>ZX7 Speaker</h2>
           <Button
             type={ButtonTypes.outline}
             text="See Product"
