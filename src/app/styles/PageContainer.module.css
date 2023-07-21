@@ -51,20 +51,20 @@
 
 .contentContainerCategory {
   composes: contentContainer;
+  padding: 4rem 0 7.5rem 0;
+  gap: 7.5rem;
 }
 
 @media (min-width: 700px) {
   .contentContainerCategory {
+    padding: 7.5rem 0 7.5rem 0;
   }
 }
 
 @media (min-width: 1100px) {
   .contentContainerCategory {
-  }
-}
-
-@media (min-width: 1200px) {
-  .contentContainerCategory {
+    padding: 10rem 0 10rem 0;
+    gap: 10rem;
   }
 }
 
