@@ -5,7 +5,6 @@
   background-size: cover;
   background-position: center top 0.4rem;
   color: var(--white);
-  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 590px) {
@@ -19,7 +18,6 @@
     height: 45rem;
     background-size: cover;
     background-position: center top -0.3rem;
-    margin-bottom: 5rem;
   }
 }
 
@@ -35,7 +33,6 @@
       #191919 0px 0px / 100% 100% no-repeat;
     background-size: cover;
     background-position: center top -0.9rem;
-    margin-bottom: 7.5rem;
   }
 }
 

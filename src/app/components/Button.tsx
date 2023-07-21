@@ -2,9 +2,10 @@ import React from 'react';
 import buttonStyles from '@/app/styles/Button.module.css';
 
 enum ButtonTypes {
-  default = 'default',
-  outline = 'outline',
-  transparent = 'transparent',
+  default,
+  outline,
+  outlineInvertedWhite,
+  transparent,
 }
 
 type buttonProps = {
@@ -16,6 +17,14 @@ type buttonProps = {
 export default function Button(props: buttonProps) {
   if (props.type === ButtonTypes.outline) {
     return <button className={buttonStyles.buttonOutline}>{props.text}</button>;
+  }
+
+  if (props.type === ButtonTypes.outlineInvertedWhite) {
+    return (
+      <button className={buttonStyles.buttonOutlineInvertedWhite}>
+        {props.text}
+      </button>
+    );
   }
 
   if (props.type === ButtonTypes.transparent) {

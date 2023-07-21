@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mainItem {
+  position: relative;
+  height: 37.5rem;
+  background-color: var(--orange);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3.5rem;
+  overflow: clip;
+}
+
+@media (min-width: 700px) {
+  .mainItem {
+    height: 45rem;
+    padding: 4rem;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .mainItem {
+    height: 35rem;
+    flex-direction: row;
+    gap: 12.5rem;
+  }
+}
+
+.mainItem > img {
+  height: 18rem;
+  width: auto;
+  margin-bottom: -2.5rem;
+}
+
+@media (min-width: 700px) {
+  .mainItem > img {
+    height: 24rem;
+    margin-bottom: -5.5rem;
+  }
+}
+
+.mainItemTextBox {
+  width: 21.8125rem;
+  height: 19rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+@media (min-width: 1100px) {
+  .mainItemTextBox {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.mainItemTextBox > h2 {
+  color: #fff;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: 0.08038rem;
+  text-transform: uppercase;
+}
+
+.mainItemTextBox > p {
+  color: #fff;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5625rem;
+  opacity: 0.9;
+}
+
+.mainItemInnerCircle {
+  transition: all 1s ease-in-out;
+  width: 17.4375rem;
+  height: 17.4375rem;
+  flex-shrink: 0;
+  border-radius: 17.4375rem;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 1.8rem;
+  opacity: 0.2;
+}
+
+@media (min-width: 700px) {
+  .mainItemInnerCircle {
+    width: 23.4375rem;
+    height: 23.4375rem;
+    border-radius: 23.4375rem;
+    top: 1.5rem;
+  }
+}
+
+.mainItem:hover .mainItemInnerCircle {
+  transition: all 0.5s ease-in-out;
+  opacity: 0.5;
+  scale: 105%;
+}
+
+.mainItemInnerMiddleCircle {
+  transition: all 1s ease-in-out;
+  width: 20rem;
+  height: 20rem;
+  flex-shrink: 0;
+  border-radius: 20rem;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 0.55rem;
+  opacity: 0.2;
+}
+
+@media (min-width: 700px) {
+  .mainItemInnerMiddleCircle {
+    width: 26rem;
+    height: 26rem;
+    border-radius: 26rem;
+    top: 0.25rem;
+  }
+}
+
+.mainItem:hover .mainItemInnerMiddleCircle {
+  transition: all 0.5s ease-in-out 0.25s;
+  opacity: 0.5;
+  scale: 110%;
+}
+
+.mainItemOuterMiddleCircle {
+  transition: all 1s ease-in-out;
+  width: 32.3125rem;
+  height: 32.3125rem;
+  flex-shrink: 0;
+  border-radius: 32.3125rem;
+  border: 1px solid #fff;
+  position: absolute;
+  top: -5.25rem;
+  opacity: 0.2;
+}
+
+@media (min-width: 700px) {
+  .mainItemOuterMiddleCircle {
+    height: 38.3125rem;
+    width: 38.3125rem;
+    border-radius: 38.3125rem;
+    top: -6rem;
+  }
+}
+
+.mainItem:hover .mainItemOuterMiddleCircle {
+  transition: all 0.5s ease-in-out 0.5s;
+  opacity: 0.5;
+  scale: 105%;
+}
+
+.mainItemOuterCircle {
+  transition: all 1s ease-in-out;
+  width: 34.875rem;
+  height: 34.875rem;
+  flex-shrink: 0;
+  border-radius: 34.875rem;
+  border: 1px solid #fff;
+  position: absolute;
+  top: -6.5rem;
+  opacity: 0.2;
+}
+
+@media (min-width: 700px) {
+  .mainItemOuterCircle {
+    height: 40.875rem;
+    width: 40.875rem;
+    border-radius: 40.875rem;
+    top: -7.25rem;
+  }
+}
+
+.mainItem:hover .mainItemOuterCircle {
+  transition: all 0.5s ease-in-out 0.75s;
+  opacity: 0.5;
+  scale: 110%;
+}

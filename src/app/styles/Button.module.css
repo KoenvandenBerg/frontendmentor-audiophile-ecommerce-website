@@ -25,12 +25,23 @@
 
 .buttonOutline {
   composes: button;
-  background-color: var(--white);
-  border: 1px solid black;
+  background-color: transparent;
+  border: 1px solid var(--black);
 }
 
 .buttonOutline:hover {
   background-color: var(--black);
+  color: var(--white);
+}
+
+.buttonOutlineInvertedWhite {
+  composes: button;
+  background-color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.buttonOutlineInvertedWhite:hover {
+  background-color: transparent;
   color: var(--white);
 }
 
