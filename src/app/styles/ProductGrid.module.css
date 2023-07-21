@@ -255,16 +255,16 @@
 .secondaryItem {
   height: 18.75rem;
   border-radius: 0.5rem;
-  background-image: url('/home/desktop/image-speaker-zx7.jpg');
+  background-image: url('/home/mobile/image-speaker-zx7.jpg');
   background-size: cover;
   background-position-x: 35%;
+  background-position-y: center;
 }
 
 @media (min-width: 700px) {
   .secondaryItem {
     height: 22.5rem;
     background-image: url('/home/desktop/image-speaker-zx7.jpg');
-    background-size: cover;
     background-position-x: 40%;
   }
 }
