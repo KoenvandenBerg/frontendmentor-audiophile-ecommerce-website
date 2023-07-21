@@ -1,17 +1,16 @@
 import CategoryButtons from './components/CategoryButtons';
 import DescriptionSection from './components/DescriptionSection';
 import HeroSection from './components/HeroSection';
-import pageStyles from './page.module.css';
+import PageContainer from './components/PageContainer';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <section className={pageStyles.categoryButtonsContainer}>
+      <PageContainer>
         <CategoryButtons />
-      </section>
-
-      <DescriptionSection />
+        <DescriptionSection />
+      </PageContainer>
     </>
   );
 }

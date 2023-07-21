@@ -1,5 +1,4 @@
 .content {
-  margin: 0 1.5rem;
   max-width: 70rem;
   display: flex;
   flex-direction: column;
@@ -8,16 +7,9 @@
 @media (min-width: 1100px) {
   .content {
     height: 35rem;
-    margin: 0 2.5rem;
     flex-direction: row-reverse;
     justify-content: space-between;
     gap: 10rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .content {
-    margin: 0 auto;
   }
 }
 
