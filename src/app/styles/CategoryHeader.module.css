@@ -1,18 +1,5 @@
 .container {
   background-color: #191919;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 700px) {
-  .container {
-    margin-bottom: 7.5rem;
-  }
-}
-
-@media (min-width: 1100px) {
-  .container {
-    margin-bottom: 10rem;
-  }
 }
 
 .contentContainer {
