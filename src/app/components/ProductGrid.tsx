@@ -26,8 +26,27 @@ export default function ProductGrid() {
         <div className={productGridStyles.mainItemOuterMiddleCircle}></div>
         <div className={productGridStyles.mainItemOuterCircle}></div>
       </div>
-      <div>Second Item</div>
-      <div>Third Item</div>
+      <div className={productGridStyles.secondaryItem}>
+        <div className={productGridStyles.secondaryItemText}>
+          <h2>YX1 Earphones</h2>
+          <Button
+            type={ButtonTypes.outline}
+            text="See Product"
+            onClick={() => {}}
+          />
+        </div>
+      </div>
+      <div className={productGridStyles.ternaryItem}>
+        <div className={productGridStyles.ternaryItemPicture}></div>
+        <div className={productGridStyles.ternaryItemText}>
+          <h2>YX1 Earphones</h2>
+          <Button
+            type={ButtonTypes.outline}
+            text="See Product"
+            onClick={() => {}}
+          />
+        </div>
+      </div>
     </section>
   );
 }
