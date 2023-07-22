@@ -1,7 +1,10 @@
+import CategoryButtons from '@/app/components/CategoryButtons';
+import DescriptionSection from '@/app/components/DescriptionSection';
 import PageContainer, {
   PageContainerTypes,
 } from '@/app/components/PageContainer';
 import ProductDetails from '@/app/components/ProductDetails';
+import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
 import React from 'react';
 
@@ -29,6 +32,13 @@ export default function XX59Earhpones() {
           productImageUrlTablet="/product-xx59-headphones/tablet/image-product.jpg"
           productImageUrlDesktop="/product-xx59-headphones/desktop/image-product.jpg"
         />
+        <ProductGallery
+          primaryImageUrl="/product-xx59-headphones/mobile/image-gallery-3.jpg"
+          secondaryImageUrl="/product-xx59-headphones/mobile/image-gallery-2.jpg"
+          ternaryImageUrl="/product-xx59-headphones/mobile/image-gallery-1.jpg"
+        />
+        <CategoryButtons />
+        <DescriptionSection />
       </PageContainer>
     </>
   );
