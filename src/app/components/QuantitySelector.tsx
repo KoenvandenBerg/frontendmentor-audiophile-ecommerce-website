@@ -17,7 +17,7 @@ export default function QuantitySelector(props: QuantitySelectorProps) {
       >
         -
       </button>
-      <p aria-label="Selected quantity.">{props.selectedQuantity}</p>
+      <span aria-label="Selected quantity.">{props.selectedQuantity}</span>
       <button
         className={quantitySelectorStyles.button}
         disabled={props.selectedQuantity < 5 ? false : true}
