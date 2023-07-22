@@ -1,0 +1,22 @@
+.container {
+  background-color: #191919;
+}
+
+.navbarContainer {
+  max-width: 70rem;
+  height: 100%;
+  color: var(--white);
+  margin: 0 1.5rem;
+}
+
+@media (min-width: 1100px) {
+  .navbarContainer {
+    margin: 0 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbarContainer {
+    margin: 0 auto;
+  }
+}
