@@ -42,7 +42,7 @@ export default function ProductDetails(props: ProductDetailsProps) {
           {props.new && <h3>New Product</h3>}
           <h1>{props.productName}</h1>
           <p>{props.productDescription}</p>
-          <p>$ {props.productPrice}</p>
+          <p>€ {props.productPrice.toLocaleString('nl')}</p>
           <ProductDetailsButtons />
         </div>
       </div>
