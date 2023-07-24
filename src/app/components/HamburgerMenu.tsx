@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import hamburgerMenuStyles from '@/app/styles/HamburgerMenu.module.css';
 import { createPortal } from 'react-dom';
 import CategoryButtons from './CategoryButtons';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function HamburgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,16 +30,23 @@ export default function HamburgerMenu() {
         <rect y="12" width="16" height="3" fill="white" />
       </svg>
 
+      <AnimatePresence key={'hamburgerMenu'}>
+        {menuOpen && (
+          <motion.div
+            className={hamburgerMenuStyles.hamburgerMenuDropdown}
+            initial={{ y: -500, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <CategoryButtons />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {menuOpen &&
         createPortal(
-          <>
-            <div
-              className={hamburgerMenuStyles.hamburgerMenuDropdownBackground}
-            ></div>
-            <div className={hamburgerMenuStyles.hamburgerMenuDropdown}>
-              <CategoryButtons />
-            </div>
-          </>,
+          <div
+            className={hamburgerMenuStyles.hamburgerMenuDropdownBackground}
+          ></div>,
           document.body
         )}
     </>
