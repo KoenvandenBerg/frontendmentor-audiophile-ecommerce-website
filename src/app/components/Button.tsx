@@ -8,12 +8,17 @@ type buttonProps = {
   type: ButtonTypes;
   text: string;
   onClick: ((event: React.MouseEvent<HTMLButtonElement>) => void) | undefined;
+  disabled?: boolean;
 };
 
 export default function Button(props: buttonProps) {
   if (props.type === ButtonTypes.outline) {
     return (
-      <button className={buttonStyles.buttonOutline} onClick={props.onClick}>
+      <button
+        className={buttonStyles.buttonOutline}
+        onClick={props.onClick}
+        disabled={props.disabled == true}
+      >
         {props.text}
       </button>
     );
@@ -24,6 +29,7 @@ export default function Button(props: buttonProps) {
       <button
         className={buttonStyles.buttonOutlineInvertedWhite}
         onClick={props.onClick}
+        disabled={props.disabled == true}
       >
         {props.text}
       </button>
@@ -35,6 +41,7 @@ export default function Button(props: buttonProps) {
       <button
         className={buttonStyles.buttonTransparent}
         onClick={props.onClick}
+        disabled={props.disabled == true}
       >
         {props.text}
         <svg
@@ -58,13 +65,18 @@ export default function Button(props: buttonProps) {
     <button
       className={buttonStyles.buttonDefaultFullWidth}
       onClick={props.onClick}
+      disabled={props.disabled == true}
     >
       {props.text}
     </button>;
   }
 
   return (
-    <button className={buttonStyles.buttonDefault} onClick={props.onClick}>
+    <button
+      className={buttonStyles.buttonDefault}
+      onClick={props.onClick}
+      disabled={props.disabled == true}
+    >
       {props.text}
     </button>
   );
