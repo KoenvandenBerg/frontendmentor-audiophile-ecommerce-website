@@ -72,23 +72,3 @@
 .pageLink:hover {
   color: var(--orange);
 }
-
-.cartMenuButton {
-  position: absolute;
-  right: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-@media (min-width: 1100px) {
-  .cartMenuButton {
-    position: absolute;
-    right: 0;
-  }
-}
-
-.cartMenuButton:hover path {
-  transition: all 0.15s ease-in-out;
-  fill: var(--orange);
-}

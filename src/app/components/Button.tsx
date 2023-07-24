@@ -54,8 +54,17 @@ export default function Button(props: buttonProps) {
     );
   }
 
+  if (props.type === ButtonTypes.defaultFullWidth) {
+    <button
+      className={buttonStyles.buttonDefaultFullWidth}
+      onClick={props.onClick}
+    >
+      {props.text}
+    </button>;
+  }
+
   return (
-    <button className={buttonStyles.buttonRegular} onClick={props.onClick}>
+    <button className={buttonStyles.buttonDefault} onClick={props.onClick}>
       {props.text}
     </button>
   );

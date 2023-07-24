@@ -14,14 +14,19 @@
   cursor: pointer;
 }
 
-.buttonRegular {
+.buttonDefault {
   composes: button;
   background-color: var(--orange);
   color: var(--white);
 }
 
-.buttonRegular:hover {
+.buttonDefault:hover {
   background-color: var(--light-orange);
+}
+
+.buttonDefaultFullWidth {
+  composes: buttonDefault;
+  width: 100%;
 }
 
 .buttonOutline {
