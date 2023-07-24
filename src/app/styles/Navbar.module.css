@@ -14,10 +14,25 @@
 }
 
 .container > a {
+  transition: all 0.25s ease-in-out;
   width: 9rem;
   height: 100%;
-  position: absolute;
-  left: 0;
+  left: 50%;
+}
+
+@media (min-width: 700px) {
+  .container > a {
+    position: absolute;
+    left: 3rem;
+    margin: 0 0;
+  }
+}
+
+@media (min-width: 1100px) {
+  .container > a {
+    position: absolute;
+    left: 0;
+  }
 }
 
 .hamburgerMenu {
@@ -26,27 +41,9 @@
 }
 
 .logo {
-  transition: all 0.25s ease-in-out;
   width: 9rem;
   position: absolute;
-  left: 50%;
   top: 1.95rem;
-  margin-left: -4.5rem;
-}
-
-@media (min-width: 700px) {
-  .logo {
-    position: absolute;
-    left: 3rem;
-    margin: 0 0;
-  }
-}
-
-@media (min-width: 1100px) {
-  .logo {
-    position: absolute;
-    left: 0;
-  }
 }
 
 .logo:hover path {
