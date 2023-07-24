@@ -37,9 +37,8 @@ export default function Cart() {
         {menuOpen && (
           <motion.div
             className={cartStyles.cartMenu}
-            initial={{ x: 400, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 400, opacity: 0 }}
+            initial={{ y: -500, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
           >
             <div className={cartStyles.textTop}>
               <h2>Cart (#)</h2>
