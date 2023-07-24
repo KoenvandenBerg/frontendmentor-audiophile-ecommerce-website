@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import categoryButtonStyles from '@/app/styles/CategoryButton.module.css';
-import Button, { ButtonTypes } from './Button';
+import Button from './Button';
+import { ButtonTypes } from '../types/ButtonTypes';
 import Link from 'next/link';
 
 export enum categoryButtonTypes {
@@ -65,7 +66,7 @@ export default function CategoryButton(props: CategoryButtonProps) {
           <Button
             text="Shop"
             type={ButtonTypes.transparent}
-            onClick={() => {}}
+            onClick={undefined}
           />
         </Link>
       </div>

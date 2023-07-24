@@ -1,6 +1,7 @@
 import React from 'react';
 import heroSectionStyles from '@/app/styles/HeroSection.module.css';
-import Button, { ButtonTypes } from './Button';
+import Button from './Button';
+import { ButtonTypes } from '../types/ButtonTypes';
 import Navbar from './Navbar';
 
 export default function Header() {
@@ -19,7 +20,7 @@ export default function Header() {
             <Button
               text="See Product"
               type={ButtonTypes.default}
-              onClick={() => {}}
+              onClick={undefined}
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import productDetailsStyles from '@/app/styles/ProductDetails.module.css';
-import Button, { ButtonTypes } from './Button';
+import Button from './Button';
+import { ButtonTypes } from '../types/ButtonTypes';
 import QuantitySelector from './QuantitySelector';
 import ProductDetailsButtons from './ProductDetailsButtons';
 

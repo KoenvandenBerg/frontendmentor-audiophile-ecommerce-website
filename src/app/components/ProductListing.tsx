@@ -2,12 +2,14 @@
 import React, { PropsWithChildren } from 'react';
 import productListingStyles from '@/app/styles/ProductListing.module.css';
 import productListingInvertedStyles from '@/app/styles/ProductListingInverted.module.css';
-import Button, { ButtonTypes } from './Button';
+import { ButtonTypes } from '../types/ButtonTypes';
+import NavigationButton from './NavigationButton';
 
 type ProductListingProps = {
   new: boolean;
   productName: string;
   productDescription: string;
+  productPageUrl: string;
   productImageUrlMobile: string;
   productImageUrlTablet: string;
   productImageUrlDesktop: string;
@@ -43,10 +45,10 @@ export default function ProductListing(
         {props.new && <h3>New Product</h3>}
         <h2>{props.productName}</h2>
         <p>{props.productDescription}</p>
-        <Button
+        <NavigationButton
           type={ButtonTypes.default}
           text="See Product"
-          onClick={() => {}}
+          url={props.productPageUrl}
         />
       </div>
     </section>

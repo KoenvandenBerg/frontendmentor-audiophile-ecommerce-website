@@ -1,27 +1,30 @@
+'use client';
+
 import React from 'react';
 import buttonStyles from '@/app/styles/Button.module.css';
-
-enum ButtonTypes {
-  default,
-  outline,
-  outlineInvertedWhite,
-  transparent,
-}
+import { ButtonTypes } from '../types/ButtonTypes';
 
 type buttonProps = {
   type: ButtonTypes;
   text: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: ((event: React.MouseEvent<HTMLButtonElement>) => void) | undefined;
 };
 
 export default function Button(props: buttonProps) {
   if (props.type === ButtonTypes.outline) {
-    return <button className={buttonStyles.buttonOutline}>{props.text}</button>;
+    return (
+      <button className={buttonStyles.buttonOutline} onClick={props.onClick}>
+        {props.text}
+      </button>
+    );
   }
 
   if (props.type === ButtonTypes.outlineInvertedWhite) {
     return (
-      <button className={buttonStyles.buttonOutlineInvertedWhite}>
+      <button
+        className={buttonStyles.buttonOutlineInvertedWhite}
+        onClick={props.onClick}
+      >
         {props.text}
       </button>
     );
@@ -29,7 +32,10 @@ export default function Button(props: buttonProps) {
 
   if (props.type === ButtonTypes.transparent) {
     return (
-      <button className={buttonStyles.buttonTransparent}>
+      <button
+        className={buttonStyles.buttonTransparent}
+        onClick={props.onClick}
+      >
         {props.text}
         <svg
           width="7"
@@ -48,7 +54,9 @@ export default function Button(props: buttonProps) {
     );
   }
 
-  return <button className={buttonStyles.buttonRegular}>{props.text}</button>;
+  return (
+    <button className={buttonStyles.buttonRegular} onClick={props.onClick}>
+      {props.text}
+    </button>
+  );
 }
-
-export { ButtonTypes };

@@ -1,6 +1,7 @@
 import React from 'react';
 import productGridStyles from '@/app/styles/ProductGrid.module.css';
-import Button, { ButtonTypes } from './Button';
+import { ButtonTypes } from '../types/ButtonTypes';
+import NavigationButton from './NavigationButton';
 
 export default function ProductGrid() {
   return (
@@ -15,10 +16,10 @@ export default function ProductGrid() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Button
+          <NavigationButton
             type={ButtonTypes.outlineInvertedWhite}
             text="See Product"
-            onClick={() => {}}
+            url={'/products/zx9-speaker'}
           />
         </div>
         <div className={productGridStyles.mainItemInnerCircle}></div>
@@ -29,10 +30,10 @@ export default function ProductGrid() {
       <div className={productGridStyles.secondaryItem}>
         <div className={productGridStyles.secondaryItemText}>
           <h2>ZX7 Speaker</h2>
-          <Button
+          <NavigationButton
             type={ButtonTypes.outline}
             text="See Product"
-            onClick={() => {}}
+            url={'/products/zx7-speaker'}
           />
         </div>
       </div>
@@ -40,10 +41,10 @@ export default function ProductGrid() {
         <div className={productGridStyles.ternaryItemPicture}></div>
         <div className={productGridStyles.ternaryItemText}>
           <h2>YX1 Earphones</h2>
-          <Button
+          <NavigationButton
             type={ButtonTypes.outline}
             text="See Product"
-            onClick={() => {}}
+            url={'/products/yx1-wireless-earphones'}
           />
         </div>
       </div>
