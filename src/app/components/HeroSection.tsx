@@ -1,8 +1,8 @@
 import React from 'react';
 import heroSectionStyles from '@/app/styles/HeroSection.module.css';
-import Button from './Button';
 import { ButtonTypes } from '../types/ButtonTypes';
 import Navbar from './Navbar';
+import NavigationButton from './NavigationButton';
 
 export default function Header() {
   return (
@@ -17,10 +17,10 @@ export default function Header() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <Button
+            <NavigationButton
               text="See Product"
               type={ButtonTypes.default}
-              onClick={undefined}
+              url="/products/xx99-mark-two-headphones"
             />
           </div>
         </div>
