@@ -1,13 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import cartStyles from '@/app/styles/Cart.module.css';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Button from './Button';
 import { ButtonTypes } from '../types/ButtonTypes';
+import { CartContext } from '../contexts/CartContext';
+import { CartActionType } from '../types/CartTypes';
 
 export default function Cart() {
+  const { cartState, dispatch } = useContext(CartContext);
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -41,18 +45,45 @@ export default function Cart() {
             animate={{ y: 0, opacity: 1 }}
           >
             <div className={cartStyles.textTop}>
-              <h2>Cart (#)</h2>
-              <p>Remove all</p>
+              <h2>Cart ({Object.keys(cartState).length})</h2>
+              {Object.keys(cartState).length !== 0 && (
+                <button
+                  onClick={() =>
+                    dispatch({
+                      type: CartActionType.empty_cart,
+                      productName: '',
+                      productImageUrl: '',
+                      quantity: 0,
+                      price: 0,
+                    })
+                  }
+                >
+                  Remove all
+                </button>
+              )}
             </div>
-            <div className={cartStyles.textCartTotal}>
-              <h2>Total</h2>
-              <p>€ ...</p>
+            <div className={cartStyles.cartContent}>
+              {' '}
+              {Object.keys(cartState).length === 0 ? (
+                <p>Your cart is empty.</p>
+              ) : (
+                <p>Your cart is not empty.</p>
+              )}
             </div>
-            <Button
-              type={ButtonTypes.defaultFullWidth}
-              text="Checkout"
-              onClick={undefined}
-            />
+
+            {Object.keys(cartState).length !== 0 && (
+              <>
+                <div className={cartStyles.textCartTotal}>
+                  <h2>Total</h2>
+                  <p>€ ...</p>
+                </div>
+                <Button
+                  type={ButtonTypes.defaultFullWidth}
+                  text="Checkout"
+                  onClick={undefined}
+                />
+              </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

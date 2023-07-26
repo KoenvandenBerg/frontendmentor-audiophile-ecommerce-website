@@ -66,6 +66,18 @@
   text-decoration-line: underline;
 }
 
+.cartContent {
+  color: #000;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5625rem;
+  opacity: 0.5;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .textCartTotal {
   display: flex;
   justify-content: space-between;
