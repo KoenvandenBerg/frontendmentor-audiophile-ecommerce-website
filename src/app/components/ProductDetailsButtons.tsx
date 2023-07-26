@@ -41,6 +41,7 @@ export default function ProductDetailsButtons({
               className={toastStyles.container}
               initial={{ y: '150%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
+              onClick={() => toast.remove()}
             >
               <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg">
                 <path

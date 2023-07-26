@@ -21,7 +21,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <div>
-          <Toaster position="bottom-right" reverseOrder={false} gutter={8} />
+          <Toaster
+            position="bottom-right"
+            reverseOrder={false}
+            gutter={8}
+            containerStyle={{
+              bottom: 40,
+              right: 40,
+            }}
+          />
         </div>
         <CartContextProvider>{children}</CartContextProvider>
         <Footer />
