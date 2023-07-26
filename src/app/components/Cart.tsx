@@ -47,6 +47,13 @@ export default function Cart() {
     };
   });
 
+  const getCartItemCount = () => {
+    const keys = Object.keys(cartState);
+    const subCount = keys.map((product) => cartState[product].quantity);
+    const count = subCount.reduce((total, subtotal) => total + subtotal, 0);
+    return count;
+  };
+
   const getCartTotal = () => {
     const keys = Object.keys(cartState);
     const subTotals = keys.map(
@@ -74,9 +81,15 @@ export default function Cart() {
           />
         </svg>
       </button>
-      <div className={cartStyles.menuButtonCounter}>
-        {Object.keys(cartState).length}
-      </div>
+      {Object.keys(cartState).length > 0 && (
+        <motion.div
+          className={cartStyles.menuButtonCounter}
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          {getCartItemCount() <= 10 ? getCartItemCount() : '10+'}
+        </motion.div>
+      )}
 
       <AnimatePresence key={'cartMenu'}>
         {menuOpen && (
@@ -87,7 +100,7 @@ export default function Cart() {
             ref={menuRef}
           >
             <div className={cartStyles.textTop}>
-              <h2>Cart ({Object.keys(cartState).length})</h2>
+              <h2>Cart ({getCartItemCount()})</h2>
               {Object.keys(cartState).length !== 0 && (
                 <button
                   onClick={() =>
