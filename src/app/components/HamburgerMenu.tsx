@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import hamburgerMenuStyles from '@/app/styles/HamburgerMenu.module.css';
 import { createPortal } from 'react-dom';
 import CategoryButtons from './CategoryButtons';
@@ -12,6 +12,32 @@ export default function HamburgerMenu() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const menuRef = useRef<any>();
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current !== null && !menuRef.current.contains(e.target)) {
+        e.stopPropagation();
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClick);
+
+    const handleEscPress = (e: KeyboardEvent) => {
+      if (menuOpen && e.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscPress);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleEscPress);
+    };
+  });
 
   return (
     <>
@@ -36,6 +62,7 @@ export default function HamburgerMenu() {
             className={hamburgerMenuStyles.hamburgerMenuDropdown}
             initial={{ y: -500, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            ref={menuRef}
           >
             <CategoryButtons />
           </motion.div>

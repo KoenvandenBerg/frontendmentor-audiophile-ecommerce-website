@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import cartStyles from '@/app/styles/Cart.module.css';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -18,6 +18,32 @@ export default function Cart() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const menuRef = useRef<any>();
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current !== null && !menuRef.current.contains(e.target)) {
+        e.stopPropagation();
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClick);
+
+    const handleEscPress = (e: KeyboardEvent) => {
+      if (menuOpen && e.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscPress);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleEscPress);
+    };
+  });
 
   const getCartTotal = () => {
     const keys = Object.keys(cartState);
@@ -53,6 +79,7 @@ export default function Cart() {
             className={cartStyles.cartMenu}
             initial={{ y: -500, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            ref={menuRef}
           >
             <div className={cartStyles.textTop}>
               <h2>Cart ({Object.keys(cartState).length})</h2>
