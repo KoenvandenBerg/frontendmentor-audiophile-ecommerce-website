@@ -1,0 +1,28 @@
+.container {
+  width: fit-content;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container > svg {
+  margin-right: 0.75rem;
+}
+
+.container > p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5625rem;
+}
+
+.container > p > span {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+}
