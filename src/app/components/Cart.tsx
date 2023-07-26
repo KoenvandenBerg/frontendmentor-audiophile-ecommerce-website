@@ -63,6 +63,10 @@ export default function Cart() {
     return total;
   };
 
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartState));
+  }, [cartState]);
+
   return (
     <>
       <button className={cartStyles.menuButton} onClick={() => toggleMenu()}>
