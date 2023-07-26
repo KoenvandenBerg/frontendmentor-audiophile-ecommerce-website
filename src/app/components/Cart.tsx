@@ -22,6 +22,8 @@ export default function Cart() {
   const menuRef = useRef<any>();
 
   useEffect(() => {
+    if (!menuOpen) return;
+
     const handleClick = (e: MouseEvent) => {
       if (menuRef.current !== null && !menuRef.current.contains(e.target)) {
         e.stopPropagation();
@@ -72,6 +74,9 @@ export default function Cart() {
           />
         </svg>
       </button>
+      <div className={cartStyles.menuButtonCounter}>
+        {Object.keys(cartState).length}
+      </div>
 
       <AnimatePresence key={'cartMenu'}>
         {menuOpen && (

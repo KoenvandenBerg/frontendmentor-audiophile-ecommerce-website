@@ -16,6 +16,8 @@ export default function HamburgerMenu() {
   const menuRef = useRef<any>();
 
   useEffect(() => {
+    if (!menuOpen) return;
+
     const handleClick = (e: MouseEvent) => {
       if (menuRef.current !== null && !menuRef.current.contains(e.target)) {
         e.stopPropagation();
