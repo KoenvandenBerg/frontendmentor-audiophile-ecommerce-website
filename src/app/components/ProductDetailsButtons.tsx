@@ -14,6 +14,8 @@ export default function ProductDetailsButtons() {
       <QuantitySelector
         selectedQuantity={selectedQuantity}
         setSelectedQuantity={setSelectedQuantity}
+        min={1}
+        max={5}
       />
       <Button
         text="Add to Cart"
