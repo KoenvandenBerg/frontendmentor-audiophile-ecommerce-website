@@ -1,8 +1,14 @@
 .container {
-  height: 4rem;
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (min-width: 700px) {
+  .container {
+    height: 4rem;
+  }
 }
 
 .imageAndTextContainer {
@@ -12,44 +18,84 @@
 }
 
 .imageContainer {
-  height: 4rem;
-  width: 4rem;
+  height: 4.5rem;
+  width: 3rem;
   background-color: var(--gray);
   border-radius: 0.5rem;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 700px) {
+  .imageContainer {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 
 .imageContainer img {
-  height: 4rem;
+  height: 3rem;
   width: auto;
   border-radius: 0.5rem;
 }
 
+@media (min-width: 700px) {
+  .imageContainer img {
+    height: 4rem;
+    width: auto;
+  }
+}
+
 .textContainer h4 {
   color: #000;
-  font-size: 0.9375rem;
+  font-size: 0.8375rem;
   font-style: normal;
   font-weight: 700;
   line-height: 1.5625rem;
 }
 
+@media (min-width: 700px) {
+  .textContainer h4 {
+    font-size: 0.9375rem;
+  }
+}
+
 .textContainer p {
   color: #000;
-  font-size: 0.875rem;
+  font-size: 0.775rem;
   font-style: normal;
   font-weight: 700;
   line-height: 1.5625rem;
   opacity: 0.5;
 }
 
+@media (min-width: 700px) {
+  .textContainer p {
+    font-size: 0.9375rem;
+  }
+}
+
 .quantitySelectorAndRemoveItemContainer {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
   gap: 0.5rem;
+  scale: 0.9;
+}
+
+@media (min-width: 700px) {
+  .quantitySelectorAndRemoveItemContainer {
+    flex-direction: row;
+    scale: 1;
+  }
 }
 
 .removeItemButton {
   height: 2rem;
-  width: 2rem;
+  width: 6rem;
   color: #000;
   background-color: var(--gray);
   border-radius: 0.5rem;
@@ -57,6 +103,13 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+@media (min-width: 700px) {
+  .removeItemButton {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .removeItemButton:hover {
