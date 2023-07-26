@@ -8,6 +8,7 @@ import Button from './Button';
 import { ButtonTypes } from '../types/ButtonTypes';
 import { CartContext } from '../contexts/CartContext';
 import { CartActionType } from '../types/CartTypes';
+import CartItem from './CartItem';
 
 export default function Cart() {
   const { cartState, dispatch } = useContext(CartContext);
@@ -16,6 +17,15 @@ export default function Cart() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const getCartTotal = () => {
+    const keys = Object.keys(cartState);
+    const subTotals = keys.map(
+      (product) => cartState[product].quantity * cartState[product].price
+    );
+    const total = subTotals.reduce((total, subtotal) => total + subtotal, 0);
+    return total;
   };
 
   return (
@@ -67,15 +77,49 @@ export default function Cart() {
               {Object.keys(cartState).length === 0 ? (
                 <p>Your cart is empty.</p>
               ) : (
-                <p>Your cart is not empty.</p>
+                Object.keys(cartState).map((product) => (
+                  <CartItem
+                    key={product}
+                    imageUrl={cartState[product].productImageUrl}
+                    productName={product}
+                    productPrice={cartState[product].price}
+                    quantity={cartState[product].quantity}
+                    decreaseCartQuantity={() =>
+                      dispatch({
+                        type: CartActionType.decrease_quantity,
+                        productName: product,
+                        productImageUrl: '',
+                        quantity: 0,
+                        price: 0,
+                      })
+                    }
+                    increaseCartQuantity={() =>
+                      dispatch({
+                        type: CartActionType.increase_quantity,
+                        productName: product,
+                        productImageUrl: '',
+                        quantity: 0,
+                        price: 0,
+                      })
+                    }
+                    removeItem={() =>
+                      dispatch({
+                        type: CartActionType.remove_item,
+                        productName: product,
+                        productImageUrl: '',
+                        quantity: 0,
+                        price: 0,
+                      })
+                    }
+                  />
+                ))
               )}
             </div>
-
             {Object.keys(cartState).length !== 0 && (
               <>
                 <div className={cartStyles.textCartTotal}>
                   <h2>Total</h2>
-                  <p>€ ...</p>
+                  <p>€ {getCartTotal().toLocaleString('nl')}</p>
                 </div>
                 <Button
                   type={ButtonTypes.defaultFullWidth}

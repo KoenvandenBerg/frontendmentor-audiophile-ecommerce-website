@@ -6,6 +6,7 @@ import PageContainer, {
 import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
+import { CartActionType } from '@/app/types/CartTypes';
 import React from 'react';
 
 export default function XX99MarkTwoEarhpones() {
@@ -32,6 +33,13 @@ export default function XX99MarkTwoEarhpones() {
           productImageUrlMobile="/product-xx99-mark-two-headphones/mobile/image-product.jpg"
           productImageUrlTablet="/product-xx99-mark-two-headphones/tablet/image-product.jpg"
           productImageUrlDesktop="/product-xx99-mark-two-headphones/desktop/image-product.jpg"
+          action={{
+            type: CartActionType.add_item,
+            price: 2999,
+            productName: 'XX99 MK II',
+            productImageUrl: '/cart/image-xx99-mark-two-headphones.jpg',
+            quantity: 0,
+          }}
         />
         <ProductGallery
           primaryImageUrl="/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg"

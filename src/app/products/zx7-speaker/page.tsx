@@ -6,6 +6,7 @@ import PageContainer, {
 import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
+import { CartActionType } from '@/app/types/CartTypes';
 import React from 'react';
 
 export default function ZX7Speaker() {
@@ -32,6 +33,13 @@ export default function ZX7Speaker() {
           productImageUrlMobile="/product-zx7-speaker/mobile/image-product.jpg"
           productImageUrlTablet="/product-zx7-speaker/tablet/image-product.jpg"
           productImageUrlDesktop="/product-zx7-speaker/desktop/image-product.jpg"
+          action={{
+            type: CartActionType.add_item,
+            price: 3500,
+            productName: 'ZX7',
+            productImageUrl: '/cart/image-zx7-speaker.jpg',
+            quantity: 0,
+          }}
         />
         <ProductGallery
           primaryImageUrl="/product-zx7-speaker/mobile/image-gallery-3.jpg"

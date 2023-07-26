@@ -52,6 +52,30 @@
   margin-bottom: 2rem;
 }
 
+.textTop button {
+  width: 5rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5625rem;
+  opacity: 0.5;
+  position: absolute;
+  right: 2rem;
+  top: 1.8rem;
+  cursor: pointer;
+}
+
+.textTop button:hover {
+  text-decoration: underline;
+}
+/* 
 .textTop p {
   color: #000;
   font-size: 0.9375rem;
@@ -64,18 +88,23 @@
 
 .textTop p:hover {
   text-decoration-line: underline;
-}
+} */
 
 .cartContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cartContent > p {
   color: #000;
   font-size: 0.9375rem;
   font-style: normal;
   font-weight: 500;
   line-height: 1.5625rem;
   opacity: 0.5;
-  cursor: pointer;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .textCartTotal {

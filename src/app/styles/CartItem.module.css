@@ -1,0 +1,64 @@
+.container {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imageAndTextContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.imageContainer {
+  height: 4rem;
+  width: 4rem;
+  background-color: var(--gray);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  height: 4rem;
+  width: auto;
+  border-radius: 0.5rem;
+}
+
+.textContainer h4 {
+  color: #000;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5625rem;
+}
+
+.textContainer p {
+  color: #000;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5625rem;
+  opacity: 0.5;
+}
+
+.quantitySelectorAndRemoveItemContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.removeItemButton {
+  height: 2rem;
+  width: 2rem;
+  color: #000;
+  background-color: var(--gray);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.removeItemButton:hover {
+  color: red;
+}

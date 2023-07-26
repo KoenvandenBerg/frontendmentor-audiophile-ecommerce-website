@@ -6,6 +6,7 @@ import PageContainer, {
 import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
+import { CartActionType } from '@/app/types/CartTypes';
 import React from 'react';
 
 export default function XX59Earhpones() {
@@ -31,6 +32,13 @@ export default function XX59Earhpones() {
           productImageUrlMobile="/product-xx59-headphones/mobile/image-product.jpg"
           productImageUrlTablet="/product-xx59-headphones/tablet/image-product.jpg"
           productImageUrlDesktop="/product-xx59-headphones/desktop/image-product.jpg"
+          action={{
+            type: CartActionType.add_item,
+            price: 899,
+            productName: 'XX59',
+            productImageUrl: '/cart/image-xx59-headphones.jpg',
+            quantity: 0,
+          }}
         />
         <ProductGallery
           primaryImageUrl="/product-xx59-headphones/mobile/image-gallery-3.jpg"

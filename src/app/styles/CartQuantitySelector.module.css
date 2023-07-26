@@ -1,0 +1,10 @@
+.container {
+  composes: container from './QuantitySelector.module.css';
+  height: 2rem;
+  width: 6rem;
+  padding: 0rem;
+}
+
+.button {
+  composes: button from './QuantitySelector.module.css';
+}

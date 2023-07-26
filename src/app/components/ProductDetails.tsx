@@ -4,6 +4,7 @@ import Button from './Button';
 import { ButtonTypes } from '../types/ButtonTypes';
 import QuantitySelector from './QuantitySelector';
 import ProductDetailsButtons from './ProductDetailsButtons';
+import { CartAction } from '../types/CartTypes';
 
 type ProductDetailsProps = {
   new: boolean;
@@ -17,6 +18,7 @@ type ProductDetailsProps = {
   productImageUrlMobile: string;
   productImageUrlTablet: string;
   productImageUrlDesktop: string;
+  action: CartAction;
 };
 
 export default function ProductDetails(props: ProductDetailsProps) {
@@ -44,7 +46,7 @@ export default function ProductDetails(props: ProductDetailsProps) {
           <h1>{props.productName}</h1>
           <p>{props.productDescription}</p>
           <p>€ {props.productPrice.toLocaleString('nl')}</p>
-          <ProductDetailsButtons />
+          <ProductDetailsButtons action={props.action} />
         </div>
       </div>
       <div className={productDetailsStyles.featuresAndContentContainer}>

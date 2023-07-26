@@ -6,6 +6,7 @@ import PageContainer, {
 import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
+import { CartActionType } from '@/app/types/CartTypes';
 import React from 'react';
 
 export default function YX1WirelessEarphones() {
@@ -32,6 +33,13 @@ export default function YX1WirelessEarphones() {
           productImageUrlMobile="/product-yx1-earphones/mobile/image-product.jpg"
           productImageUrlTablet="/product-yx1-earphones/tablet/image-product.jpg"
           productImageUrlDesktop="/product-yx1-earphones/desktop/image-product.jpg"
+          action={{
+            type: CartActionType.add_item,
+            price: 599,
+            productName: 'YX1',
+            productImageUrl: '/cart/image-yx1-earphones.jpg',
+            quantity: 0,
+          }}
         />
         <ProductGallery
           primaryImageUrl="/product-yx1-earphones/mobile/image-gallery-3.jpg"

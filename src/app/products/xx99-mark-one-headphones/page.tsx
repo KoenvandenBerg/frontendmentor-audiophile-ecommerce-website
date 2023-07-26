@@ -6,6 +6,7 @@ import PageContainer, {
 import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
+import { CartActionType } from '@/app/types/CartTypes';
 import React from 'react';
 
 export default function XX99MarkOneEarhpones() {
@@ -31,6 +32,13 @@ export default function XX99MarkOneEarhpones() {
           productImageUrlMobile="/product-xx99-mark-one-headphones/mobile/image-product.jpg"
           productImageUrlTablet="/product-xx99-mark-one-headphones/tablet/image-product.jpg"
           productImageUrlDesktop="/product-xx99-mark-one-headphones/desktop/image-product.jpg"
+          action={{
+            type: CartActionType.add_item,
+            price: 1750,
+            productName: 'XX99 MK I',
+            productImageUrl: '/cart/image-xx99-mark-one-headphones.jpg',
+            quantity: 0,
+          }}
         />
         <ProductGallery
           primaryImageUrl="/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg"

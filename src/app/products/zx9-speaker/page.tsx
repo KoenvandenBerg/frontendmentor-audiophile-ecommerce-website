@@ -6,6 +6,7 @@ import PageContainer, {
 import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
+import { CartActionType } from '@/app/types/CartTypes';
 import React from 'react';
 
 export default function ZX9Speaker() {
@@ -32,6 +33,13 @@ export default function ZX9Speaker() {
           productImageUrlMobile="/product-zx9-speaker/mobile/image-product.jpg"
           productImageUrlTablet="/product-zx9-speaker/tablet/image-product.jpg"
           productImageUrlDesktop="/product-zx9-speaker/desktop/image-product.jpg"
+          action={{
+            type: CartActionType.add_item,
+            price: 4500,
+            productName: 'ZX9',
+            productImageUrl: '/cart/image-zx9-speaker.jpg',
+            quantity: 0,
+          }}
         />
         <ProductGallery
           primaryImageUrl="/product-zx9-speaker/mobile/image-gallery-3.jpg"
