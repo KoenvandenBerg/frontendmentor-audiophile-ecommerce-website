@@ -1,7 +1,14 @@
 'use client';
 
-import React, { ReactNode, createContext, useReducer } from 'react';
+import React, {
+  ReactNode,
+  createContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
 import { Cart, CartAction, CartActionType } from '../types/CartTypes';
+import { get } from 'http';
 
 const reducer = (state: Cart, action: CartAction): Cart => {
   switch (action.type) {
@@ -72,16 +79,6 @@ const reducer = (state: Cart, action: CartAction): Cart => {
   }
 };
 
-const getLocalCart = (): Cart => {
-  const localCart = localStorage.getItem('cart');
-
-  if (localCart) {
-    return JSON.parse(localCart);
-  }
-
-  return {};
-};
-
 export const CartContext = createContext<{
   cartState: Cart;
   dispatch: React.Dispatch<CartAction>;
@@ -92,7 +89,7 @@ export default function CartContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [cartState, dispatch] = useReducer(reducer, getLocalCart());
+  const [cartState, dispatch] = useReducer(reducer, {});
 
   return (
     <CartContext.Provider value={{ cartState, dispatch }}>
