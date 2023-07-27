@@ -9,6 +9,7 @@ import { ButtonTypes } from '../types/ButtonTypes';
 import { CartContext } from '../contexts/CartContext';
 import { CartActionType } from '../types/CartTypes';
 import CartItem from './CartItem';
+import { useRouter } from 'next/navigation';
 
 export default function Cart() {
   const { cartState, dispatch } = useContext(CartContext);
@@ -62,6 +63,8 @@ export default function Cart() {
     const total = subTotals.reduce((total, subtotal) => total + subtotal, 0);
     return total;
   };
+
+  const router = useRouter();
 
   return (
     <>
@@ -169,7 +172,7 @@ export default function Cart() {
                 <Button
                   type={ButtonTypes.defaultFullWidth}
                   text="Checkout"
-                  onClick={undefined}
+                  onClick={() => router.push('/checkout')}
                 />
               </>
             )}
