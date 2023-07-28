@@ -15,13 +15,23 @@ interface IFormInput {
   zipCode: string;
   city: string;
   country: string;
+  paymentMethod: string;
+  eMoneyNumber?: string;
+  eMoneyPIN?: string;
 }
 
 export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState('e-money');
 
   const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    if (paymentMethod === 'cod') {
+      delete data.eMoneyNumber;
+      delete data.eMoneyPIN;
+    }
+
+    console.log(data);
+  };
 
   const { cartState } = useContext(CartContext);
 
@@ -56,19 +66,23 @@ export default function CheckoutForm() {
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="name-input">Name</label>
               <p>Error Message</p>
-              <input id="name-input" type="text" />
+              <input id="name-input" type="text" {...register('name')} />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="email-input">Email Address</label>
               <p>Error Message</p>
-              <input id="email-input" type="email" />
+              <input id="email-input" type="email" {...register('email')} />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="phone-input">Phone Number</label>
               <p>Error Message</p>
-              <input id="phone-input" type="text" />
+              <input
+                id="phone-input"
+                type="text"
+                {...register('phoneNumber')}
+              />
             </div>
           </div>
         </div>
@@ -79,25 +93,25 @@ export default function CheckoutForm() {
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="address-input">Your Address</label>
               <p>Error Message</p>
-              <input id="address-input" type="text" />
+              <input id="address-input" type="text" {...register('address')} />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="zipcode-input">ZIP Code</label>
               <p>Error Message</p>
-              <input id="zipcode-input" type="email" />
+              <input id="zipcode-input" type="text" {...register('zipCode')} />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="city-input">City</label>
               <p>Error Message</p>
-              <input id="city-input" type="text" />
+              <input id="city-input" type="text" {...register('city')} />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="country-input">Country</label>
               <p>Error Message</p>
-              <input id="country-input" type="text" />
+              <input id="country-input" type="text" {...register('country')} />
             </div>
           </div>
         </div>
@@ -109,24 +123,26 @@ export default function CheckoutForm() {
             <div className={checkoutFormStyles.radioContainer}>
               <div className={checkoutFormStyles.radioInputContainer}>
                 <input
-                  name="payment-method"
+                  // name="payment-method"
                   id="e-money"
                   type="radio"
                   value="e-money"
                   onClick={() => setPaymentMethod('e-money')}
                   checked={paymentMethod === 'e-money'}
+                  {...register('paymentMethod')}
                 />
                 <label htmlFor="e-money">e-Money</label>
               </div>
 
               <div className={checkoutFormStyles.radioInputContainer}>
                 <input
-                  name="payment-method"
+                  // name="payment-method"
                   id="cod"
                   type="radio"
                   value="cod"
                   onClick={() => setPaymentMethod('cod')}
                   checked={paymentMethod === 'cod'}
+                  {...register('paymentMethod')}
                 />
                 <label htmlFor="cod">Cash on Delivery</label>
               </div>
@@ -137,13 +153,21 @@ export default function CheckoutForm() {
                   <div className={checkoutFormStyles.inputContainer}>
                     <label htmlFor="emoneyNumber-input">e-Money Number</label>
                     <p>Error Message</p>
-                    <input id="emoneyNumber-input" type="text" />
+                    <input
+                      id="emoneyNumber-input"
+                      type="text"
+                      {...register('eMoneyNumber')}
+                    />
                   </div>
 
                   <div className={checkoutFormStyles.inputContainer}>
                     <label htmlFor="emoneyPIN-input">e-Money PIN</label>
                     <p>Error Message</p>
-                    <input id="emoneyPIN-input" type="text" />
+                    <input
+                      id="emoneyPIN-input"
+                      type="text"
+                      {...register('eMoneyPIN')}
+                    />
                   </div>
                 </div>
               </div>
