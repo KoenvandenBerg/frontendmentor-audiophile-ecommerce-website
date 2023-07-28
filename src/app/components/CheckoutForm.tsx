@@ -5,7 +5,6 @@ import checkoutFormStyles from '@/app/styles/CheckoutForm.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { CartContext } from '../contexts/CartContext';
 import SummaryItem from './SummaryItem';
-import { useRouter } from 'next/navigation';
 
 interface IFormInput {
   name: string;
@@ -27,11 +26,11 @@ export default function CheckoutForm() {
     register,
     unregister,
     handleSubmit,
-    trigger,
     formState: { errors, isValid },
   } = useForm<IFormInput>({ mode: 'all' });
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
+    alert('Order placed.');
   };
 
   const { cartState } = useContext(CartContext);
@@ -46,12 +45,6 @@ export default function CheckoutForm() {
   };
 
   const shipping = 50;
-
-  const router = useRouter();
-
-  if (getCartTotal() === 0) {
-    router.push('/');
-  }
 
   return (
     <form
