@@ -5,6 +5,7 @@ import checkoutFormStyles from '@/app/styles/CheckoutForm.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { CartContext } from '../contexts/CartContext';
 import SummaryItem from './SummaryItem';
+import { get } from 'http';
 
 interface IFormInput {
   name: string;
@@ -44,7 +45,7 @@ export default function CheckoutForm() {
     return total;
   };
 
-  const shipping = 50;
+  const shipping = getCartTotal() === 0 ? 0 : 50;
 
   return (
     <form
@@ -274,7 +275,7 @@ export default function CheckoutForm() {
           type="submit"
           value="Continue & Pay"
           className={checkoutFormStyles.submitButton}
-          disabled={!isValid}
+          disabled={!isValid && getCartTotal() === 0}
         />
       </div>
     </form>
