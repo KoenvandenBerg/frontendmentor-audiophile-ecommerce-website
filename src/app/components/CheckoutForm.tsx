@@ -1,11 +1,14 @@
 'use client';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import checkoutFormStyles from '@/app/styles/CheckoutForm.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { CartContext } from '../contexts/CartContext';
 import SummaryItem from './SummaryItem';
-import { get } from 'http';
+import { createPortal } from 'react-dom';
+import NavigationButton from './NavigationButton';
+import { ButtonTypes } from '../types/ButtonTypes';
+import { CartActionType } from '../types/CartTypes';
 
 interface IFormInput {
   name: string;
@@ -22,6 +25,35 @@ interface IFormInput {
 
 export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState('e-money');
+  const [showModal, setShowModal] = useState(false);
+
+  const modalRef = useRef<any>();
+
+  useEffect(() => {
+    if (!showModal) return;
+
+    const handleClick = (e: MouseEvent) => {
+      if (modalRef.current !== null && !modalRef.current.contains(e.target)) {
+        e.stopPropagation();
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClick);
+
+    const handleEscPress = (e: KeyboardEvent) => {
+      if (showModal && e.key === 'Escape') {
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscPress);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleEscPress);
+    };
+  });
 
   const {
     register,
@@ -31,10 +63,17 @@ export default function CheckoutForm() {
   } = useForm<IFormInput>({ mode: 'all' });
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     console.log(data);
-    alert('Order placed.');
+    dispatch({
+      type: CartActionType.empty_cart,
+      productName: '',
+      productImageUrl: '',
+      quantity: 0,
+      price: 0,
+    });
+    setShowModal(true);
   };
 
-  const { cartState } = useContext(CartContext);
+  const { cartState, dispatch } = useContext(CartContext);
 
   const getCartTotal = () => {
     const keys = Object.keys(cartState);
@@ -278,6 +317,31 @@ export default function CheckoutForm() {
           disabled={!isValid || getCartTotal() === 0}
         />
       </div>
+      {showModal &&
+        createPortal(
+          <div className={checkoutFormStyles.orderPlacedModal}>
+            <div ref={modalRef}>
+              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                  <circle fill="#D87D4A" cx="32" cy="32" r="32" />
+                  <path
+                    stroke="#FFF"
+                    stroke-width="4"
+                    d="m20.754 33.333 6.751 6.751 15.804-15.803"
+                  />
+                </g>
+              </svg>
+              <h2>Thank you for your order</h2>
+              <p>You will receive an email confirmation shortly.</p>
+              <NavigationButton
+                type={ButtonTypes.defaultFullWidth}
+                text="Back to Home"
+                url="/"
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </form>
   );
 }
