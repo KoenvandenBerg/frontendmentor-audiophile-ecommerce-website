@@ -275,7 +275,7 @@ export default function CheckoutForm() {
           type="submit"
           value="Continue & Pay"
           className={checkoutFormStyles.submitButton}
-          disabled={!isValid && getCartTotal() === 0}
+          disabled={!isValid || getCartTotal() === 0}
         />
       </div>
     </form>
