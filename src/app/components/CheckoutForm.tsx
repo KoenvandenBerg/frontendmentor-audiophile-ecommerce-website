@@ -23,13 +23,14 @@ interface IFormInput {
 export default function CheckoutForm() {
   const [paymentMethod, setPaymentMethod] = useState('e-money');
 
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const {
+    register,
+    unregister,
+    handleSubmit,
+    trigger,
+    formState: { errors, isValid },
+  } = useForm<IFormInput>({ mode: 'all' });
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    if (paymentMethod === 'cod') {
-      delete data.eMoneyNumber;
-      delete data.eMoneyPIN;
-    }
-
     console.log(data);
   };
 
@@ -65,23 +66,41 @@ export default function CheckoutForm() {
           <div className={checkoutFormStyles.checkoutForm}>
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="name-input">Name</label>
-              <p>Error Message</p>
-              <input id="name-input" type="text" {...register('name')} />
+              <p>{errors.name?.message}</p>
+              <input
+                id="name-input"
+                type="text"
+                {...register('name', {
+                  required: 'This field is required.',
+                })}
+              />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="email-input">Email Address</label>
-              <p>Error Message</p>
-              <input id="email-input" type="email" {...register('email')} />
+              <p>{errors.email?.message}</p>
+              <input
+                id="email-input"
+                type="email"
+                {...register('email', {
+                  required: 'This field is required.',
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: 'Enter a valid e-mail address.',
+                  },
+                })}
+              />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="phone-input">Phone Number</label>
-              <p>Error Message</p>
+              <p>{errors.phoneNumber?.message}</p>
               <input
                 id="phone-input"
                 type="text"
-                {...register('phoneNumber')}
+                {...register('phoneNumber', {
+                  required: 'This field is required.',
+                })}
               />
             </div>
           </div>
@@ -92,26 +111,50 @@ export default function CheckoutForm() {
           <div className={checkoutFormStyles.checkoutForm}>
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="address-input">Your Address</label>
-              <p>Error Message</p>
-              <input id="address-input" type="text" {...register('address')} />
+              <p>{errors.address?.message}</p>
+              <input
+                id="address-input"
+                type="text"
+                {...register('address', {
+                  required: 'This field is required.',
+                })}
+              />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="zipcode-input">ZIP Code</label>
-              <p>Error Message</p>
-              <input id="zipcode-input" type="text" {...register('zipCode')} />
+              <p>{errors.zipCode?.message}</p>
+              <input
+                id="zipcode-input"
+                type="text"
+                {...register('zipCode', {
+                  required: 'This field is required.',
+                })}
+              />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="city-input">City</label>
-              <p>Error Message</p>
-              <input id="city-input" type="text" {...register('city')} />
+              <p>{errors.city?.message}</p>
+              <input
+                id="city-input"
+                type="text"
+                {...register('city', {
+                  required: 'This field is required.',
+                })}
+              />
             </div>
 
             <div className={checkoutFormStyles.inputContainer}>
               <label htmlFor="country-input">Country</label>
-              <p>Error Message</p>
-              <input id="country-input" type="text" {...register('country')} />
+              <p>{errors.country?.message}</p>
+              <input
+                id="country-input"
+                type="text"
+                {...register('country', {
+                  required: 'This field is required.',
+                })}
+              />
             </div>
           </div>
         </div>
@@ -129,7 +172,9 @@ export default function CheckoutForm() {
                   value="e-money"
                   onClick={() => setPaymentMethod('e-money')}
                   checked={paymentMethod === 'e-money'}
-                  {...register('paymentMethod')}
+                  {...register('paymentMethod', {
+                    required: 'This field is required.',
+                  })}
                 />
                 <label htmlFor="e-money">e-Money</label>
               </div>
@@ -140,9 +185,14 @@ export default function CheckoutForm() {
                   id="cod"
                   type="radio"
                   value="cod"
-                  onClick={() => setPaymentMethod('cod')}
+                  onClick={() => {
+                    setPaymentMethod('cod');
+                    unregister(['eMoneyNumber', 'eMoneyPIN']);
+                  }}
                   checked={paymentMethod === 'cod'}
-                  {...register('paymentMethod')}
+                  {...register('paymentMethod', {
+                    required: 'This field is required.',
+                  })}
                 />
                 <label htmlFor="cod">Cash on Delivery</label>
               </div>
@@ -152,21 +202,25 @@ export default function CheckoutForm() {
                 <div className={checkoutFormStyles.checkoutForm}>
                   <div className={checkoutFormStyles.inputContainer}>
                     <label htmlFor="emoneyNumber-input">e-Money Number</label>
-                    <p>Error Message</p>
+                    <p>{errors.eMoneyNumber?.message}</p>
                     <input
                       id="emoneyNumber-input"
                       type="text"
-                      {...register('eMoneyNumber')}
+                      {...register('eMoneyNumber', {
+                        required: 'This field is required.',
+                      })}
                     />
                   </div>
 
                   <div className={checkoutFormStyles.inputContainer}>
                     <label htmlFor="emoneyPIN-input">e-Money PIN</label>
-                    <p>Error Message</p>
+                    <p>{errors.eMoneyPIN?.message}</p>
                     <input
                       id="emoneyPIN-input"
                       type="text"
-                      {...register('eMoneyPIN')}
+                      {...register('eMoneyPIN', {
+                        required: 'This field is required.',
+                      })}
                     />
                   </div>
                 </div>
@@ -227,7 +281,7 @@ export default function CheckoutForm() {
           type="submit"
           value="Continue & Pay"
           className={checkoutFormStyles.submitButton}
-          disabled={false}
+          disabled={!isValid}
         />
       </div>
     </form>
