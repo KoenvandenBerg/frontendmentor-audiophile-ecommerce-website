@@ -131,12 +131,19 @@
   line-height: 1.5625rem;
   opacity: 0.5;
   margin-bottom: 1.5rem;
-  max-width: 60%;
+  max-width: 90%;
   text-align: center;
+}
+
+@media (min-width: 700px) {
+  .textContainer p {
+    max-width: 50%;
+  }
 }
 
 @media (min-width: 1100px) {
   .textContainer p {
+    max-width: 60%;
     text-align: end;
   }
 }
