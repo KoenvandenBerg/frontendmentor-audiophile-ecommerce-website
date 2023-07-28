@@ -18,7 +18,7 @@ interface IFormInput {
 }
 
 export default function CheckoutForm() {
-  const [paymentMethod, setPaymentMethod] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('e-money');
 
   const { register, handleSubmit } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
@@ -114,6 +114,7 @@ export default function CheckoutForm() {
                   type="radio"
                   value="e-money"
                   onClick={() => setPaymentMethod('e-money')}
+                  checked={paymentMethod === 'e-money'}
                 />
                 <label htmlFor="e-money">e-Money</label>
               </div>
@@ -125,6 +126,7 @@ export default function CheckoutForm() {
                   type="radio"
                   value="cod"
                   onClick={() => setPaymentMethod('cod')}
+                  checked={paymentMethod === 'cod'}
                 />
                 <label htmlFor="cod">Cash on Delivery</label>
               </div>
