@@ -122,17 +122,19 @@ export default function CheckoutForm() {
                 </div>
               </div>
               {paymentMethod === 'e-money' && (
-                <div className={checkoutFormStyles.checkoutForm}>
-                  <div className={checkoutFormStyles.inputContainer}>
-                    <label htmlFor="emoneyNumber-input">e-Money Number</label>
-                    <p>Error Message</p>
-                    <input id="emoneyNumber-input" type="text" />
-                  </div>
+                <div className={checkoutFormStyles.formSubContainer}>
+                  <div className={checkoutFormStyles.checkoutForm}>
+                    <div className={checkoutFormStyles.inputContainer}>
+                      <label htmlFor="emoneyNumber-input">e-Money Number</label>
+                      <p>Error Message</p>
+                      <input id="emoneyNumber-input" type="text" />
+                    </div>
 
-                  <div className={checkoutFormStyles.inputContainer}>
-                    <label htmlFor="emoneyPIN-input">e-Money PIN</label>
-                    <p>Error Message</p>
-                    <input id="emoneyPIN-input" type="text" />
+                    <div className={checkoutFormStyles.inputContainer}>
+                      <label htmlFor="emoneyPIN-input">e-Money PIN</label>
+                      <p>Error Message</p>
+                      <input id="emoneyPIN-input" type="text" />
+                    </div>
                   </div>
                 </div>
               )}
