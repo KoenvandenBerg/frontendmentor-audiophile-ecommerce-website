@@ -5,7 +5,12 @@ import PageContainer, {
   PageContainerTypes,
 } from '@/app/components/PageContainer';
 import ProductListing from '@/app/components/ProductListing';
+import { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'Headphones | Audiophile',
+};
 
 export default function Headphones() {
   return (

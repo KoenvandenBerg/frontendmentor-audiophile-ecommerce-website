@@ -7,7 +7,12 @@ import ProductDetails from '@/app/components/ProductDetails';
 import ProductGallery from '@/app/components/ProductGallery';
 import ProductHeader from '@/app/components/ProductHeader';
 import { CartActionType } from '@/app/types/CartTypes';
+import { Metadata } from 'next';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: 'ZX7 Speaker | Audiophile',
+};
 
 export default function ZX7Speaker() {
   return (
